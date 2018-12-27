@@ -1,0 +1,12 @@
+(define (double x)
+  (* x 2))
+(define (halve x)
+  (/ x 2))
+(define (iter tmp a b)
+  (if (= b 0)
+    0
+    (if (even? b)
+      (iter tmp (double a) (halve b))
+      (+ a (iter tmp a (- b 1))))))
+(define (mul a b)
+  (iter 0 a b))
